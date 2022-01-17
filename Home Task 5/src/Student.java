@@ -1,5 +1,5 @@
 public class Student {
-     int id;
+    private int id;
     private String lastName;
     private String firstName;
     private String patronymic;
@@ -7,12 +7,12 @@ public class Student {
     private String address;
     private String phoneNumber;
     private String faculty;
-    private String course;
+    private int course;
     private int group;
 
     public Student(int id, String lastName, String firstName,
                    String patronymic, int birthday, String address,
-                   String phoneNumber, String faculty, String course, int group) {
+                   String phoneNumber, String faculty, int course, int group) {
         this.id = id;
         this.lastName = lastName;
         this.firstName = firstName;
@@ -92,11 +92,11 @@ public class Student {
         this.faculty = faculty;
     }
 
-    public String getCourse() {
+    public int getCourse() {
         return course;
     }
 
-    public void setCourse(String course) {
+    public void setCourse(int course) {
         this.course = course;
     }
 
