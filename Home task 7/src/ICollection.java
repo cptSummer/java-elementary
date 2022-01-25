@@ -1,11 +1,13 @@
 public interface ICollection {
-    boolean add(int index, String value);
+    boolean addAtIndex(int index, String value);
 
-    boolean add(String value);
+    boolean addAsValue(String value);
 
-    boolean delete(int index);
+    boolean deleteAtIndex(int index);
 
-    boolean delete(String value);
+    boolean deleteAtValue(String value);
 
     String get(int index);
+
+    void printCollection();
 }
