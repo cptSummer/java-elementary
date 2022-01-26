@@ -5,6 +5,7 @@ public class Main {
         collection.addAsValue("a");
         collection.addAsValue("b");
         collection.addAsValue("c");
+        collection.addAsValue("");
         String srt = "Enter information of students (through a space)";
         String[] words = srt.split(" ");
         for (String s : words) {
@@ -14,5 +15,6 @@ public class Main {
         collection.deleteAtValue("a");
         collection.deleteAtIndex(5);
         collection.printCollection();
+
     }
 }

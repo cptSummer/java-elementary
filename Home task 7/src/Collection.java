@@ -5,6 +5,7 @@ public class Collection implements ICollection {
     private int sizeCount;
 
     public Collection() {
+        strArray = new String[0];
     }
 
     public Collection(int size) {
@@ -20,7 +21,7 @@ public class Collection implements ICollection {
 
     @Override
     public boolean addAtIndex(int index, String value) {
-        if (index > this.strArray.length)
+        if (index > this.sizeCount)
             this.addAsValue(value);
         else {
             this.strArray = Arrays.copyOf(this.strArray, this.strArray.length);
@@ -47,14 +48,15 @@ public class Collection implements ICollection {
 
     @Override
     public boolean deleteAtIndex(int index) {
-        if (index > this.strArray.length)
+        if (index > this.sizeCount)
             return false;
         else {
             for (int i = index; i < this.strArray.length - 1; i++) {
                 this.strArray[i] = this.strArray[i + 1];
             }
-            sizeCount--;
+
             this.strArray = Arrays.copyOf(this.strArray, this.strArray.length);
+            strArray[--sizeCount] = null;
         }
         return true;
     }
@@ -62,6 +64,7 @@ public class Collection implements ICollection {
     @Override
     public boolean deleteAtValue(String value) {
         int index = 0;
+
         for (int i = 0; i < this.strArray.length - 1; i++) {
             if (strArray[i] == value) {
                 index = i;
@@ -70,15 +73,16 @@ public class Collection implements ICollection {
         for (int i = index; i < this.strArray.length - 1; i++) {
             this.strArray[i] = this.strArray[i + 1];
         }
-        sizeCount--;
+
         this.strArray = Arrays.copyOf(this.strArray, this.strArray.length);
+        strArray[--sizeCount] = null;
         return true;
     }
 
     @Override
     public String get(int index) {
-        if (index > this.strArray.length)
-            return null;
+        if (index > this.sizeCount)
+            throw new ArrayIndexOutOfBoundsException();
         return this.strArray[index];
     }
 
