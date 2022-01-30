@@ -16,4 +16,6 @@ public interface ObjectCollection {
     boolean clear();
 
     int size();
+
+    void show();
 }
