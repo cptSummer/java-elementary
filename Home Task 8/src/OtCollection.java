@@ -1,37 +1,36 @@
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.Scanner;
+
 
 public class OtCollection implements ObjectCollection {
-    private Person[] personArray;
+    private Object[] objectArray;
     private int sizeCount;
-    Scanner sc = new Scanner(System.in);
+
 
 
     public OtCollection() {
-        personArray = new Person[0];
+        objectArray = new Object[1];
     }
 
     public OtCollection(int size) {
-        personArray = new Person[size];
+        objectArray = new Person[size];
     }
 
     @Override
     public void show() {
-        for (Object o : personArray) {
+        for (Object o : objectArray) {
             System.out.println(o);
         }
     }
 
     @Override
     public boolean add(Object o) {
-        Person person = (Person) o;
-        if (sizeCount == personArray.length - 1) {
-            this.personArray = Arrays.copyOf(this.personArray, (this.personArray.length * 3) / 2 + 1);
-            this.personArray[sizeCount] = person;
+        if (sizeCount == objectArray.length - 1) {
+            this.objectArray = Arrays.copyOf(this.objectArray, (this.objectArray.length * 3) / 2 + 1);
+            this.objectArray[sizeCount] = o;
             sizeCount++;
         } else {
-            this.personArray[sizeCount] = person;
+            this.objectArray[sizeCount] = o;
             sizeCount++;
         }
         return true;
@@ -39,15 +38,14 @@ public class OtCollection implements ObjectCollection {
 
     @Override
     public boolean add(int index, Object o) {
-        Person person = (Person) o;
         if (index > this.sizeCount)
-            this.add(person);
+            this.add(o);
         else {
-            this.personArray = Arrays.copyOf(this.personArray, this.personArray.length);
-            for (int i = this.personArray.length - 1; i > index; i--) {
-                this.personArray[i] = this.personArray[i - 1];
+            this.objectArray = Arrays.copyOf(this.objectArray, this.objectArray.length);
+            for (int i = this.objectArray.length - 1; i > index; i--) {
+                this.objectArray[i] = this.objectArray[i - 1];
             }
-            this.personArray[index] = person;
+            this.objectArray[index] = o;
             sizeCount++;
         }
         return true;
@@ -55,18 +53,17 @@ public class OtCollection implements ObjectCollection {
 
     @Override
     public boolean delete(Object o) {
-        Person person = (Person) o;
         int index = 0;
-        for (int i = 0; i < this.personArray.length - 1; i++) {
-            if (personArray[i] == person) {
+        for (int i = 0; i < this.objectArray.length - 1; i++) {
+            if (objectArray[i] == o) {
                 index = i;
             }
         }
-        for (int i = index; i < this.personArray.length - 1; i++) {
-            this.personArray[i] = this.personArray[i + 1];
+        for (int i = index; i < this.objectArray.length - 1; i++) {
+            this.objectArray[i] = this.objectArray[i + 1];
         }
-        this.personArray = Arrays.copyOf(this.personArray, this.personArray.length);
-        personArray[--sizeCount] = null;
+        this.objectArray = Arrays.copyOf(this.objectArray, this.objectArray.length);
+        objectArray[--sizeCount] = null;
         return true;
     }
 
@@ -74,30 +71,28 @@ public class OtCollection implements ObjectCollection {
     public Object get(int index) {
         if (index > this.sizeCount)
             throw new ArrayIndexOutOfBoundsException();
-        return this.personArray[index];
+        return this.objectArray[index];
     }
 
     @Override
     public boolean contain(Object o) {
-
-        for (Person person : this.personArray) {
-            if (person == o)
+        for (Object object : this.objectArray){
+            if(object == o){
                 return true;
+            }
         }
-
         return false;
     }
 
     @Override
     public boolean equals(Collection str) {
-        if (this == str)
-            return true;
+        
         return false;
     }
 
     @Override
     public boolean clear() {
-        this.personArray = new Person[0];
+        this.objectArray = new Person[1];
         sizeCount = 0;
 
         return true;
@@ -105,6 +100,6 @@ public class OtCollection implements ObjectCollection {
 
     @Override
     public int size() {
-        return this.personArray.length;
+        return this.sizeCount;
     }
 }
