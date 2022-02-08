@@ -19,7 +19,7 @@ public interface CustomCollection {
 
     int size();
 
-    boolean compare(Collection coll);
+    boolean compare(CustomCollectionImpl coll);
 
     void show();
 }

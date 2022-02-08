@@ -85,7 +85,7 @@ public class ObjectCollectionImpl implements ObjectCollection {
         ObjectCollection oc = (ObjectCollection) str;
         if (!(str instanceof ObjectCollection)) return false;
         if (this == str) return true;
-        if(this.size() != oc.size())return false;
+        if (this.size() != oc.size()) return false;
 
         return false;
     }
@@ -103,10 +103,36 @@ public class ObjectCollectionImpl implements ObjectCollection {
         return this.count;
     }
 
-    public void noDuplicates(){
+    public void trim() {
+        if (count == 0) {
+            System.out.println("Collection haven't elements");
+        } else {
+            this.objectArray = Arrays.copyOf(this.objectArray, count);
+        }
+    }
+
+    public void noDuplicates() {
+        trim();
         Object[] arrObj = new Object[objectArray.length];
-        for (Object o: objectArray) {
-            
+        int n = objectArray.length;
+        for (int i = 0, m = 0; i != n; i++, n = m) {
+            for (int j = m = i + 1; j != n; j++) {
+                if (objectArray[j] != objectArray[i]) {
+                    if (m != j) objectArray[m] = objectArray[j];
+                    m++;
+                    count = m;
+                }
+            }
+        }
+
+        if (n != objectArray.length) {
+            for (int i = 0; i < n; i++) arrObj[i] = objectArray[i];
+            objectArray = arrObj;
+        }
+        trim();
+
+        for (Object o : objectArray) {
+            System.out.println(o);
         }
 
     }

@@ -21,8 +21,8 @@ public class CustomCollectionImpl implements CustomCollection {
 
     @Override
     public boolean addAll(String[] strArr) {
-        for (int i = 0; i < strArr.length; i++) {
-            add(strArr[i]);
+        for (String s : strArr) {
+            add(s);
         }
         return true;
     }
@@ -35,7 +35,7 @@ public class CustomCollectionImpl implements CustomCollection {
             current.displayLink();
             current = current.next;
         }
-        System.out.println("");
+
     }
 
     @Override
@@ -83,20 +83,15 @@ public class CustomCollectionImpl implements CustomCollection {
     @Override
     public boolean delete(String str) {
         Link current = first;
-        Link previous = first;
-        while (str.equals(current.dData)) {
-            if (current.next == null)
-                return false;
-            else {
-                previous = current;
-                current = current.next;
+        int i = current.iData;
+        while (current != null) {
+            i--;
+            if(current.dData.equals(str)){
+                delete(i);
             }
+
+            current = current.next;
         }
-        if (current == first)
-            first = first.next;
-        else
-            previous.next = current.next;
-        reID();
         return true;
     }
 
@@ -138,26 +133,15 @@ public class CustomCollectionImpl implements CustomCollection {
     }
 
     @Override
-    public boolean compare(Collection coll) {
-        CustomCollection oc = (CustomCollection) coll;
-        int lenA = this.size();
-        int lenB = oc.size();
-        Link currentA = first;
-        Link currentB = first;
-        if(lenA > lenB || lenA < lenB){
-            return false;
-        }
-        while (currentA != null && currentB != null)
-        {
-            if (currentA.iData > currentB.iData)
-                return false;
-            else if (currentA.iData < currentB.iData)
-                return false;
+    public boolean compare(CustomCollectionImpl coll) {
 
-            currentA = currentA.next;
-            currentB = currentB.next;
+        if (this == coll) return true;
+        if(this.size() != coll.size()) return false;
+        for (int i = coll.size(); i < 0; i--) {
+            if (!this.get(i).equals(coll.get(i))){
+                return false;
+            }
         }
-
         return true;
     }
 }
