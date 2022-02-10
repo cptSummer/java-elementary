@@ -13,7 +13,10 @@ public class Main {
         collection.add("ora");
         collection.add("ora");
         collection.add("ora");
-        collection.noDuplicates();
+       NoDuplicates noDuplicates = new NoDuplicates();
+
 
     }
+
+
 }

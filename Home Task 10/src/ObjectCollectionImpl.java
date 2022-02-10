@@ -1,10 +1,13 @@
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Iterator;
 
 
-public class ObjectCollectionImpl implements ObjectCollection {
+public class ObjectCollectionImpl implements ObjectCollection,Iterable<Object> {
+
     private Object[] objectArray;
     private int count = 0;
+
 
 
     public ObjectCollectionImpl() {
@@ -111,29 +114,26 @@ public class ObjectCollectionImpl implements ObjectCollection {
         }
     }
 
-    public void noDuplicates() {
-        trim();
-        Object[] arrObj = new Object[objectArray.length];
-        int n = objectArray.length;
-        for (int i = 0, m = 0; i != n; i++, n = m) {
-            for (int j = m = i + 1; j != n; j++) {
-                if (objectArray[j] != objectArray[i]) {
-                    if (m != j) objectArray[m] = objectArray[j];
-                    m++;
-                    count = m;
-                }
+
+    @Override
+    public Iterator<Object> iterator() {
+        Iterator<Object> it = new Iterator<>() {
+            private int currentIndex = 0;
+            @Override
+            public boolean hasNext() {
+                return currentIndex < count && objectArray[currentIndex] != null;
             }
-        }
 
-        if (n != objectArray.length) {
-            for (int i = 0; i < n; i++) arrObj[i] = objectArray[i];
-            objectArray = arrObj;
-        }
-        trim();
+            @Override
+            public Object next() {
+                return objectArray[currentIndex++];
+            }
 
-        for (Object o : objectArray) {
-            System.out.println(o);
-        }
-
+            @Override
+            public void remove() {
+                throw new UnsupportedOperationException();
+            }
+        };
+        return it;
     }
 }
