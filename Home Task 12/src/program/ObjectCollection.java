@@ -1,3 +1,5 @@
+package program;
+
 import java.util.Collection;
 
 public interface ObjectCollection {

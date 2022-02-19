@@ -1,3 +1,5 @@
+package program;
+
 import java.util.Arrays;
 import java.util.Collection;
 
@@ -92,7 +94,7 @@ public class ObjectCollectionImpl implements ObjectCollection {
 
     @Override
     public boolean clear() {
-        this.objectArray = new Person[10];
+        this.objectArray = new Object[10];
         count = 0;
 
         return true;
