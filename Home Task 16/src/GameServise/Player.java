@@ -48,4 +48,16 @@ public class Player {
     public void setTieRounds(int tieRounds) {
         this.tieRounds = tieRounds;
     }
+
+    @Override
+    public String toString() {
+        return "\n===============================================\n" +
+                "S T A T I S T I C \n"
+                + "\nPlayer name :: " + getName()
+                + "\nGame rounds :: " + getGameRound()
+                + "\nUser win :: " + getUserWin()
+                + "\nUser louse :: " + getUserLouse()
+                + "\nTie rounds :: " + getTieRounds()
+                + "\n===============================================\n\n";
+    }
 }

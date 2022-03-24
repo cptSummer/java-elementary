@@ -1,5 +1,6 @@
 package GameServise;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -7,7 +8,7 @@ public class GameProcess {
     private final String[] elements = {"rock", "paper", "scissors"};
     Statistic statistic = new Statistic();
 
-    public void startGame(Player player) {
+    public void startGame(Player player) throws IOException {
         Scanner sc = new Scanner(System.in);
         int i = 0;
         while (i != player.getGameRound()) {
@@ -41,6 +42,7 @@ public class GameProcess {
         }
         System.out.println("_______________________________________");
         statistic.endGame(player);
+        new ResultFile().fileCOrWResult(player);
     }
 
     private String matrixWLT(int userElement, int aiElement) {

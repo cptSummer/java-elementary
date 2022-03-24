@@ -1,6 +1,7 @@
 package GameServise;
 
 public class Statistic {
+    Player player = new Player();
 
     public void endGame(Player player) {
         System.out.println("===============================================");
@@ -12,4 +13,16 @@ public class Statistic {
         System.out.println("Tie rounds :: " + player.getTieRounds());
         System.out.println("===============================================");
     }
+
+//    @Override
+//    public String toString() {
+//        return "===============================================\n" +
+//                "S T A T I S T I C \n"
+//                + "\nPlayer name :: " + player.getName()
+//                + "\nGame rounds :: " + player.getGameRound()
+//                + "\nUser win :: " + player.getUserWin()
+//                + "\nUser louse :: " + player.getUserLouse()
+//                + "\nTie rounds :: " + player.getTieRounds()
+//                + "\n===============================================";
+//    }
 }
