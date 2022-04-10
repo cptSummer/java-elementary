@@ -11,11 +11,14 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.logging.Logger;
 
 import com.google.common.io.MoreFiles.*;
+import org.slf4j.LoggerFactory;
 
 @Slf4j
 public class ConvertToJSON implements Converter {
+
 
     @Override
     public void convert(Path path) {
