@@ -3,17 +3,18 @@ package main;
 import utils.FileUtils;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URISyntaxException;
 
 
 public class Main {
 
-    public static void main(String[] args) throws URISyntaxException {
+    public static void main(String[] args) throws URISyntaxException, IOException {
         FileUtils fileUtils = new FileUtils();
         String path;
-        if(args.length != 0){
+        if (args.length != 0) {
             path = args[0];
-        }else {
+        } else {
             path = checkDirectory();
         }
         fileUtils.startConversionFiles(path);
@@ -21,13 +22,6 @@ public class Main {
     }
 
 
-
-    private static void createLoggerFolder() {
-        File logFilePath = new File("log");
-        logFilePath.mkdir();
-        File logFile = new File(logFilePath + "\\result.log");
-
-    }
     private static String checkDirectory() throws URISyntaxException {
         return new File((Main.class
                 .getProtectionDomain()
@@ -35,8 +29,6 @@ public class Main {
                 .toURI()).getPath()).getParent();
 
     }
-
-
 
 
 }
