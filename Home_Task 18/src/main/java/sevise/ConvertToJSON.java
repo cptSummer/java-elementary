@@ -18,7 +18,8 @@ import org.slf4j.LoggerFactory;
 
 @Slf4j
 public class ConvertToJSON implements Converter {
-
+//    File filePath = new File("converted");
+//        filePath.mkdir();
 
     @Override
     public void convert(Path path) {
@@ -27,7 +28,9 @@ public class ConvertToJSON implements Converter {
             ObjectMapper yamlReader = new ObjectMapper(new YAMLFactory());
             Object obj = yamlReader.readValue(content, Object.class);
             ObjectMapper jsonWriter = new ObjectMapper(new JsonFactory());
-            File newFile = new File(createFileName(path));
+            File filePath = new File("converted");
+            filePath.mkdir();
+            File newFile = new File(filePath + File.separator + createFileName(path));
             jsonWriter.writeValue(newFile, obj);
 
 
@@ -38,6 +41,6 @@ public class ConvertToJSON implements Converter {
 
     @Override
     public String createFileName(Path path) {
-        return path.getFileName().toString().replace(".yaml",".json");
+        return path.getFileName().toString().replace(".yaml", ".json");
     }
 }

@@ -13,7 +13,7 @@ public class ConvertToYAML implements Converter {
 
     @Override
     public String createFileName(Path path) {
-        return path.getFileName().toString().replace(".json",".yaml");
+        return path.getFileName().toString().replace(".json", ".yaml");
     }
 
     @Override
@@ -23,7 +23,9 @@ public class ConvertToYAML implements Converter {
             ObjectMapper jsonReader = new ObjectMapper(new JsonFactory());
             Object obj = jsonReader.readValue(content, Object.class);
             ObjectMapper yamlWriter = new ObjectMapper(new YAMLFactory());
-            File newFile = new File(createFileName(path));
+            File filePath = new File("converted");
+            filePath.mkdir();
+            File newFile = new File(filePath + File.separator + createFileName(path));
             yamlWriter.writeValue(newFile, obj);
 
 
