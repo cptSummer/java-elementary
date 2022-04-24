@@ -46,35 +46,54 @@ manager varchar(30) not null,
 constraint ID_Department primary key(ID_Department)
 );
 
-alter table student add constraint fk_student
-foreign key(ID_Group) references group_student(ID_Group);
+/* один-ко-многим СТУДЕНТЫ-ГРУППЫ */
+SELECT student.ID_Student,
+student.name,
+student.ID_Group,
+group_student.name
+FROM student
+LEFT JOIN group_student
+ON student.ID_Student = group_student.ID_Group;
 
-alter table mark add constraint fk_mark
-foreign key(ID_Student) references student(ID_Student);
+/* один-ко-многим СТУДЕНТЫ-БАЛЛЫ */
+SELECT student.ID_Student,
+student.name,
+student.ID_Group,
 
-alter table mark 
-change ID_Science science int not null;
+mark.ID_Mark,
+mark.ID_Science,
+mark.mark
+FROM mark
+RIGHT JOIN student
+ON mark.ID_Student = student.ID_Student;
 
-alter table mark add constraint fk_mark_1
-foreign key(science) references science (ID_Science);
+SELECT science.ID_Science,
+science.name,
+science.ID_Teacher,
 
-alter table mark
-  change science ID_Science int not null;
-  
-alter table science add constraint fk_science
-foreign key(ID_Teacher) references teacher(ID_Teacher);
+mark.ID_Science
+FROM mark
+LEFT JOIN science
+ON mark.ID_Science = science.ID_Science;
 
-alter table teacher
-change id_department id_department int not null;
+SELECT science.ID_Science,
+science.name,
+science.ID_Science,
 
-alter table deapartment
-modify id_department bigint not null;
+teacher.ID_Teacher,
+teacher.name,
+teacher.ID_Department
+FROM science
+LEFT JOIN teacher
+ON science.ID_Science = teacher.ID_Teacher;
 
-alter table deapartment
-modify id_department int not null;
+SELECT teacher.ID_Teacher,
+teacher.name,
 
-alter table deapartment
-  modify id_department int not null auto_increment;
-  
-alter table teacher add constraint fk_teacher
-foreign key(ID_Department) references deapartment (ID_Department);
+teacher.ID_Teacher,
+
+deapartment.name,
+deapartment.manager
+FROM teacher
+LEFT JOIN deapartment
+ON teacher.ID_Teacher = deapartment.ID_Department;
