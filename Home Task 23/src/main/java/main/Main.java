@@ -13,7 +13,9 @@ public class Main {
 
 
         DBUtils utils = new DBUtils();
-//        utils.addStudent();
+        Student student = new Student().setName("Sasha").setIdGroup(2).setComingYear(2002);
+//        utils.addStudent(student);
+        utils.deleteStudent(5);
         utils.getALL().forEach(System.out::println);
 
     }
