@@ -1,0 +1,132 @@
+
+===============================================
+S T A T I S T I C 
+
+Player name :: Sasha
+Game rounds :: 1
+User win :: 0
+User louse :: 0
+Tie rounds :: 1
+===============================================
+
+
+===============================================
+S T A T I S T I C 
+
+Player name :: s
+Game rounds :: 1
+User win :: 1
+User louse :: 0
+Tie rounds :: 0
+===============================================
+
+
+===============================================
+S T A T I S T I C 
+
+Player name :: s
+Game rounds :: 1
+User win :: 0
+User louse :: 1
+Tie rounds :: 0
+===============================================
+
+
+===============================================
+S T A T I S T I C 
+
+Player name :: s
+Game rounds :: 1
+User win :: 0
+User louse :: 1
+Tie rounds :: 0
+===============================================
+
+
+===============================================
+S T A T I S T I C 
+
+Player name :: s
+Game rounds :: 1
+User win :: 0
+User louse :: 1
+Tie rounds :: 0
+===============================================
+
+
+===============================================
+S T A T I S T I C 
+
+Player name :: s
+Game rounds :: 1
+User win :: 0
+User louse :: 1
+Tie rounds :: 0
+===============================================
+
+
+===============================================
+S T A T I S T I C 
+
+Player name :: s
+Game rounds :: 1
+User win :: 0
+User louse :: 0
+Tie rounds :: 1
+===============================================
+
+
+===============================================
+S T A T I S T I C 
+
+Player name :: s
+Game rounds :: 1
+User win :: 1
+User louse :: 0
+Tie rounds :: 0
+===============================================
+
+
+===============================================
+S T A T I S T I C 
+
+Player name :: 1
+Game rounds :: 1
+User win :: 0
+User louse :: 1
+Tie rounds :: 0
+===============================================
+
+
+===============================================
+S T A T I S T I C 
+
+Player name :: 1
+Game rounds :: 1
+User win :: 0
+User louse :: 0
+Tie rounds :: 1
+===============================================
+
+
+===============================================
+S T A T I S T I C 
+
+Player name :: s
+Game rounds :: 1
+User win :: 0
+User louse :: 1
+Tie rounds :: 0
+===============================================
+
+
+===============================================
+S T A T I S T I C 
+
+Player name :: Sasha
+Game rounds :: 2
+User win :: 0
+User louse :: 1
+Tie rounds :: 1
+===============================================
+
