@@ -1,19 +1,24 @@
-package service;
+package com.template.service.impl;
+
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+import com.template.service.CacheService;
 
 import java.util.HashMap;
-import java.util.Set;
-/*
-* @param-> cache #user_id
-* @param -> o User
-* @param -> key
-*
-* */
-public class CacheImpl implements ICache{
+
+@Service
+@RequiredArgsConstructor
+public class CacheImplService implements CacheService {
     private HashMap<String,HashMap<String,Object>> cacheMap = new HashMap<>();
+
+
+    @Override
+    public HashMap<String, Object> createCache(String cache) {
+        return cacheMap.put(cache,new HashMap<>());
+    }
 
     @Override
     public boolean put(String cache, String key, Object o) {
-
         if(!isCacheExist(cache)){
             HashMap<String,Object> objectHashMap = new HashMap<>();
             objectHashMap.put(key,o);
@@ -32,7 +37,6 @@ public class CacheImpl implements ICache{
     @Override
     public void clear() { //full clear
         cacheMap = new HashMap<>();
-
     }
 
     @Override
