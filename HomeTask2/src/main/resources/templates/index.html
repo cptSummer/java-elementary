@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Title</title>
+</head>
+<body>
+<!--Form to insert users-->
+<form method="post" action="/" th:object="${user}">
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td><label>
+                <input required type="text" th:field="*{firstName}"/>
+            </label></td>
+        </tr>
+        <tr>
+            <td>Phone:</td>
+            <td><label>
+                <input required type="text" th:field="*{phone}"/>
+            </label></td>
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <td><label>
+                <input required type="text" th:field="*{email}"/>
+            </label></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="create"></td>
+        </tr>
+    </table>
+</form>
+
+<!--Output users-->
+<table>
+    <tr>
+        <th>ID</th>
+        <th>First Name</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Delete</th>
+    </tr>
+    <tr th:each="user : ${getUsers}">
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.firstName}"></td>
+        <td th:text="${user.phone}"></td>
+        <td th:text="${user.email}"></td>
+        <td th:a><a href="${getUser.id}"></a> </td>
+    </tr>
+</table>
+
+
+<!--get user-->
+<!--<form action="/" method="get" th:object="${dUser}">-->
+<!--    <input type="text" th:field="*{firstName}">-->
+<!--    <input type="submit" value="Search">-->
+<!--</form>-->
+</body>
+</html>
+
