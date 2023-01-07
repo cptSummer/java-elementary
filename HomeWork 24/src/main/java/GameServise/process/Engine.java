@@ -33,7 +33,7 @@ public class Engine {
         Locale.setDefault(Locale.forLanguageTag("uk"));
 
         System.out.println("Choose language\nВиберіть мову\nSprache wählen");
-        System.out.println("1-Deutsch 2-English 2-Українська");
+        System.out.println("1-Deutsch 2-English 3-Українська");
         int language;
         do {
             language =sc.nextInt();

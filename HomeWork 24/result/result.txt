@@ -20,3 +20,58 @@ User louse :: 0
 Tie rounds :: 0
 ===============================================
 
+
+===============================================
+S T A T I S T I C 
+
+Player name :: Sasha
+Game rounds :: 2
+User win :: 1
+User louse :: 0
+Tie rounds :: 1
+===============================================
+
+
+===============================================
+S T A T I S T I C 
+
+Player name :: Олександр
+Game rounds :: 2
+User win :: 0
+User louse :: 0
+Tie rounds :: 2
+===============================================
+
+
+===============================================
+S T A T I S T I C 
+
+Player name :: Саша
+Game rounds :: 1
+User win :: 0
+User louse :: 1
+Tie rounds :: 0
+===============================================
+
+
+===============================================
+S T A T I S T I C 
+
+Player name :: Олександр
+Game rounds :: 3
+User win :: 0
+User louse :: 2
+Tie rounds :: 1
+===============================================
+
+
+===============================================
+S T A T I S T I C 
+
+Player name ::  Alexander
+Game rounds :: 3
+User win :: 1
+User louse :: 1
+Tie rounds :: 1
+===============================================
+
