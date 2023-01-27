@@ -50,31 +50,4 @@ public class MyController {
         userDao.deleteById(id);
         return "redirect:/";
     }
-
-//    @DeleteMapping("/")
-//    public String deleteUser(@RequestParam Long id){
-////        Long id = Long.parseLong(request.getParameter("id"));
-//        userDao.deleteById(id);
-//        return "index";
-//    }
-
-//    @GetMapping("/search")
-//    public String searchUser(Model model, String name,User user){
-//        List<User> list = userDao.getByName(name);
-//        model.addAttribute("getUser",list);
-//        return "index";
-//    }
-
-
-
-
-//        model.addAttribute("getUsers", userDao.getAll());
-//        model.addAttribute("user",User.builder().build());
-
-//    @RequestMapping("/")
-//    @SneakyThrows
-//    String main(ModelAndView model, User user){
-//        model.addObject("user",user);
-//        return "index";
-//    }
 }
