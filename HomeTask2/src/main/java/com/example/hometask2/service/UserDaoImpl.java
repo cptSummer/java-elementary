@@ -25,7 +25,7 @@ public class UserDaoImpl implements UserDao{
     private static final String GET_ALL_USERS = "SELECT id, firstname, phone, email FROM users";
 
     private static final String GET_BY_NAME = "SELECT id, firstname, phone, email FROM users " +
-            "WHERE firstname LIKE:firstname";
+            "WHERE firstname =:firstname";
 
     private static final String DELETE_BY_ID = "DELETE FROM users WHERE id =:id";
 
@@ -46,7 +46,7 @@ public class UserDaoImpl implements UserDao{
         return jdbcTemplate.query(
                 GET_BY_NAME,
                 new MapSqlParameterSource()
-                        .addValue("firstname",name+"%"),
+                        .addValue("firstname",name),
                 USER_ROW_MAPPER
         );
     }
